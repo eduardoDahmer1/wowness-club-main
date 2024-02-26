@@ -1,0 +1,103 @@
+.btn_modal {
+  background: #fff;
+  color: #8ebf76;
+  border-radius: 20px;
+  border: 1.5px solid #8ebf76;
+}
+.btn_modal:hover {
+  background: #8ebf76;
+  color:#fff;
+}
+.photo-modal .filepond--panel-root {
+  background: none;
+  cursor: pointer;
+}
+.photo-modal .filepond--drop-label {
+  min-height: 50px;
+  min-width: 50px;
+  cursor: pointer;
+}
+.photo-modal .filepond--drop-label label {
+  height: 50px;
+  width: 100%;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rating {
+    background: none !important;
+    --dir: right !important;
+    --fill: gold !important;
+    --fillbg: rgba(100, 100, 100, 0.15) !important;
+    --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>') !important;
+    --stars: 5 !important;
+    --starsize: 1.8rem !important;
+    --symbol: var(--star) !important;
+    --value: 1;
+    --w: calc(var(--stars) * var(--starsize)) !important;
+    --x: calc(100% * (var(--value) / var(--stars))) !important;
+    block-size: var(--starsize) !important;
+    inline-size: var(--w) !important;
+    position: relative !important;
+    touch-action: manipulation !important;
+    -webkit-appearance: none !important;
+    cursor: pointer;
+}
+[dir="rtl"] .rating {
+  --dir: left !important;
+}
+.rating::-moz-range-track {
+  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x)) !important;
+  block-size: 100% !important;
+  mask: repeat left center/var(--starsize) var(--symbol) !important;
+}
+.rating::-webkit-slider-runnable-track {
+  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x)) !important;
+  block-size: 100% !important;
+  mask: repeat left center/var(--starsize) var(--symbol) !important;
+  -webkit-mask: repeat left center/var(--starsize) var(--symbol) !important;
+}
+.rating::-moz-range-thumb {
+  height: var(--starsize)!important;
+  opacity: 0!important;
+  width: var(--starsize)!important;
+}
+.rating::-webkit-slider-thumb {
+  height: var(--starsize)!important;
+  opacity: 0!important;
+  width: var(--starsize)!important;
+  -webkit-appearance: none!important;
+}
+.rating, .rating-label {
+  display: block!important;
+  font-family: ui-sans-serif, system-ui, sans-serif!important;
+}
+.rating-label {
+  margin-block-end: 1rem!important;
+}
+/* NO JS */
+.rating--nojs::-moz-range-track {
+  background: var(--fillbg)!important;
+}
+.rating--nojs::-moz-range-progress {
+  background: var(--fill)!important;
+  block-size: 100%!important;
+  mask: repeat left center/var(--starsize) var(--star)!important;
+}
+.rating--nojs::-webkit-slider-runnable-track {
+  background: var(--fillbg)!important;
+}
+.rating--nojs::-webkit-slider-thumb {
+  background-color: var(--fill)!important;
+  box-shadow: calc(0rem - var(--w)) 0 0 var(--w) var(--fill)!important;
+  opacity: 1!important;
+  width: 1px!important;
+}
+[dir="rtl"] .rating--nojs::-webkit-slider-thumb {
+  box-shadow: var(--w) 0 0 var(--w) var(--fill)!important;
+}
+.size-stars {
+    --starsize: 1.5rem !important;
+}

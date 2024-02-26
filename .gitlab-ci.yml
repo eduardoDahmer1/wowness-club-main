@@ -1,0 +1,19 @@
+stages:
+- building
+- deploying-stagings
+- deploying-production
+
+1-stage-wowness-club:
+  stage: deploying-stagings
+  script:
+    - eval $(ssh-agent -s)
+    - echo "$STAGE_TOKEN" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan "$HOST" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - git remote add production "$USER"@"$HOST":/var/www/stage-wowness-club.git
+    - git remote -v
+    - git status
+    - git push -f production HEAD:refs/heads/"$CI_COMMIT_REF_NAME"
+  when: manual
